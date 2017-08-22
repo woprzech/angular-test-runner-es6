@@ -4,7 +4,7 @@ const validator = require('webpack-validator');
 const ClearWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = validator({
+module.exports = {
   entry: {
     app: './src/app/app.js',
     vendor: './src/vendor.js'
@@ -17,18 +17,25 @@ module.exports = validator({
 
   module: {
 
-    preLoaders: [
+/*    preLoaders: [
       {
         test: /\.js$/,
         loader: 'eslint-loader',
-        exclude: /(node_modules)/
+        exclude: /(node_modules)/,
+	options: {
+	  eslint: {
+	    configFile: './config/eslintrc.json'
+	  },
+
+         }
+
       }
     ],
-
+*/
     loaders: [
      {
     		test: /\.js$/,
-    		loaders: ['ng-annotate','babel?presets=es2015'],
+    		loaders: ['ng-annotate','babel-loader?presets=es2015'],
     		exclude: /(node_modules)/
       },
 
@@ -36,14 +43,15 @@ module.exports = validator({
         test: /\.html$/,
         loader: 'raw-loader',
         exclude: [helpers.absolutePath('src/index.html')]
-      }
+      },
+
+
+
+
 
   	]
   },
 
-  eslint: {
-    configFile: './config/eslintrc.json'
-  },
 
   plugins: [
     new HtmlWebpackPlugin({
@@ -73,4 +81,4 @@ module.exports = validator({
     stats: 'errors-only'
   }
 
-});
+};
