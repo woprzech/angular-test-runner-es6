@@ -4,7 +4,10 @@
   "description": "sample project using webpack+angularjs+unit tests",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:dev": "webpack --config config/webpack.dev.js --watch",
+    "build:prod": "webpack --config config/webpack.prod.js --watch",
+    "develop:dev": "webpack-dev-server --config config/webpack.dev.js --watch --inline",
+    "develop:prod": "webpack-dev-server --config config/webpack.prod.js --watch --inline"
   },
   "repository": {
     "type": "git",
