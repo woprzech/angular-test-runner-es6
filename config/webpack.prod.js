@@ -9,10 +9,16 @@ module.exports = webpackMerge(config, {
   devtool: '#source-map',
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style', 'css!sass'),
+
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          //resolve-url-loader may be chained before sass-loader if necessary
+          use: ['css-loader', 'sass-loader']
+        }),
+
         exclude: /(node_modules)/
       }
     ]

@@ -1,4 +1,4 @@
-require('./home.scss');
+//require('./home.scss');
 
 import HomeCtrl from './home.controller.js';
 

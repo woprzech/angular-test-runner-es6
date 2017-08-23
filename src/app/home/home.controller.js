@@ -1,9 +1,8 @@
 class HomeCtrl {
 	
-	let test = 'hello world';
 
 	constructor() {
-		
+	  this.test = 'Hello World';
 	}
 }
 

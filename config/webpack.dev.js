@@ -8,10 +8,14 @@ module.exports = webpackMerge(config, {
   devtool: '#cheap-eval-source-map',
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.scss$/,
-        loaders: ['style', 'css','sass'],
+        use: [
+		{ loader: "style-loader"},
+		{ loader: "css-loader"},
+		{ loader: "sass-loader"}
+	],
         exclude: /(node_modules)/
       }
     ]

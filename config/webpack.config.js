@@ -16,26 +16,22 @@ module.exports = {
   },
 
   module: {
-
-/*    preLoaders: [
-      {
+    rules: [
+     {
+        enforce: "pre",
         test: /\.js$/,
-        loader: 'eslint-loader',
         exclude: /(node_modules)/,
-	options: {
-	  eslint: {
+        loader: "eslint-loader",
+        options: {
 	    configFile: './config/eslintrc.json'
-	  },
-
-         }
-
-      }
-    ],
-*/
-    loaders: [
+         }  
+      },
      {
     		test: /\.js$/,
-    		loaders: ['ng-annotate','babel-loader?presets=es2015'],
+    		use: [
+			{ loader:'ng-annotate-loader'},
+			{ loader:'babel-loader?presets=es2015'}
+		],
     		exclude: /(node_modules)/
       },
 
