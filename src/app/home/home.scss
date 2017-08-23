@@ -1,0 +1,52 @@
+.home {
+  height: 300px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 200px;
+  margin-top: 50px;
+
+  & &__textarea {
+    height: 300px;
+    padding: 10px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    font-family: 'Roboto';
+  }
+   
+  & &__indicator {
+
+    color: #c4c6c7;
+      flex:1;
+  }
+    
+  & &__button {
+    height: 50px;
+    width: 100px;
+     padding-left: 10px;
+    //margin-left: 400px;
+  }     
+ 
+}
+   
+.home-header {
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+
+  & &__label {
+    width: 150px;
+    font-weight: 800;
+  }
+
+  & &__counter-label {
+    width: 101px;
+    padding-left: 10px;
+    color: #c4c6c7;
+  }
+
+  & &__counter {
+    color: #c4c6c7;
+  }
+}
