@@ -5,7 +5,7 @@ fdescribe('home', () => {
     const {expectElement, type} = testRunner.actions;
 
     beforeEach(() => {
-        app = testRunner.app([HomeModule.name]);
+        app = testRunner.app([HomeModule.name, 'templates']);
         console.log(app);
         server = testRunner.http();
     });

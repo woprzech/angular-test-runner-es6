@@ -11,7 +11,8 @@ module.exports = function (config) {
             '../../node_modules/angular-test-runner/angular-test-runner.js',
             '../../node_modules/sinon/lib/sinon.js',
             '../../node_modules/lodash/lodash.js',
-            '../../src/app/**/*.spec.js'
+            '../../src/app/**/*.spec.js',
+            '../../src/app/**/*.html' // this is necessary if we want to test htmls from "templateUrl"
         ],
 
         autoWatch: true,
@@ -26,7 +27,8 @@ module.exports = function (config) {
             'karma-jasmine-jquery',
             'karma-jasmine',
             'karma-junit-reporter',
-            'karma-webpack'
+            'karma-webpack',
+            'karma-ng-html2js-preprocessor'
         ],
 
         junitReporter: {
@@ -36,11 +38,15 @@ module.exports = function (config) {
 
         preprocessors: {
             '../../src/app/**/*.js': ['webpack'],
+            '../../src/app/**/*.html': ['ng-html2js'] // this is necessary if we want to test htmls from "templateUrl"
+        },
+        ngHtml2JsPreprocessor: { // this is necessary if we want to test htmls from "templateUrl"
+            moduleName: 'templates' // define module name containing our htmls - it must be include to test if we want to test "templateUrl"
         },
         webpack: {
             module: {
                 loaders: [
-                    { test: /\.js/, exclude: /node_modules/, loader: 'babel-loader' }
+                    {test: /\.js/, exclude: /node_modules/, loader: 'babel-loader'},
                 ]
             },
             watch: true

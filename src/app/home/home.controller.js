@@ -17,14 +17,14 @@ class HomeCtrl {
             .then(() => this.indicator = 'Saved.')
             .catch(() => this.indicator = 'Not saved.');
     };
-
-
 }
 
 export default {
-    name: 'homeComponent', config: {
+    name: 'homeComponent',
+    config: {
         controller: HomeCtrl,
         controllerAs: 'ctrl',
-        template: '<div class="test-subject" ng-bind="ctrl.test"></div>'
+        templateUrl: 'home/home.html', // or:
+        // template: '<div class="test-subject" ng-bind="ctrl.test"></div>'
     }
 };
