@@ -23,7 +23,6 @@ module.exports = function (config) {
         plugins: [
             'karma-chrome-launcher',
             'karma-firefox-launcher',
-            'karma-babel-preprocessor',
             'karma-jasmine-jquery',
             'karma-jasmine',
             'karma-junit-reporter',
@@ -38,19 +37,6 @@ module.exports = function (config) {
         preprocessors: {
             '../../src/app/**/*.js': ['webpack'],
         },
-        // babelPreprocessor: {
-        //     options: {
-        //         presets: ['es2015'],
-        //         sourceMap: 'inline'
-        //     },
-        //     filename: function (file) {
-        //         console.log(file.originalPath);
-        //         return file.originalPath;
-        //     },
-        //     sourceFileName: function (file) {
-        //         return file.originalPath;
-        //     }
-        // },
         webpack: {
             module: {
                 loaders: [
@@ -59,11 +45,6 @@ module.exports = function (config) {
             },
             watch: true
         },
-        // babelPreprocessor: {
-        //     options: {
-        //         presets: ['es2015'],
-        //     },
-        // }
 
     });
 };

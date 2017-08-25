@@ -1,4 +1,4 @@
-import HomeModule from './home.controller';
+import HomeModule from './home.module';
 
 fdescribe('home', () => {
     let server, app;

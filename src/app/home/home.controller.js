@@ -1,5 +1,3 @@
-import HomeModule from './home.module';
-
 class HomeCtrl {
 
     constructor() {
@@ -23,8 +21,10 @@ class HomeCtrl {
 
 }
 
-export default HomeModule.component('homeComponent', {
-    controller: HomeCtrl,
-    controllerAs: 'ctrl',
-    template: '<div class="test-subject" ng-bind="ctrl.test"></div>'
-});
+export default {
+    name: 'homeComponent', config: {
+        controller: HomeCtrl,
+        controllerAs: 'ctrl',
+        template: '<div class="test-subject" ng-bind="ctrl.test"></div>'
+    }
+};
