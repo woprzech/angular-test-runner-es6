@@ -6,12 +6,12 @@ const appDependencies = [
   'ui.router'
 ];
 
-const appModules = [
-  require('./home/home.module.js'), 
-];
+// const appModules = [
+//   require('./home/home.module.js'),
+// ];
 
 angular
-  .module('webDev', appDependencies.concat(appModules.map(getModuleName)))
+  .module('webDev', ['ui.router'])
   .config( /*@ngInject*/ ($urlRouterProvider) => {
     $urlRouterProvider.otherwise('/home');
 

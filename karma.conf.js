@@ -11,14 +11,14 @@ module.exports = function (config) {
             '../../node_modules/angular-test-runner/angular-test-runner.js',
             '../../node_modules/sinon/lib/sinon.js',
             '../../node_modules/lodash/lodash.js',
-            '../../src/app/notes/**/*.js'
+            '../../src/app/**/*.spec.js'
         ],
 
         autoWatch: true,
 
         frameworks: ['jasmine-jquery', 'jasmine'],
 
-        browsers: ['Firefox'],
+        browsers: ['Chrome'],
 
         plugins: [
             'karma-chrome-launcher',
@@ -26,7 +26,8 @@ module.exports = function (config) {
             'karma-babel-preprocessor',
             'karma-jasmine-jquery',
             'karma-jasmine',
-            'karma-junit-reporter'
+            'karma-junit-reporter',
+            'karma-webpack'
         ],
 
         junitReporter: {
@@ -35,13 +36,34 @@ module.exports = function (config) {
         },
 
         preprocessors: {
-            '**/*.js': ['babel'],
+            '../../src/app/**/*.js': ['webpack'],
         },
-        babelPreprocessor: {
-            options: {
-                presets: ['es2015'],
+        // babelPreprocessor: {
+        //     options: {
+        //         presets: ['es2015'],
+        //         sourceMap: 'inline'
+        //     },
+        //     filename: function (file) {
+        //         console.log(file.originalPath);
+        //         return file.originalPath;
+        //     },
+        //     sourceFileName: function (file) {
+        //         return file.originalPath;
+        //     }
+        // },
+        webpack: {
+            module: {
+                loaders: [
+                    { test: /\.js/, exclude: /node_modules/, loader: 'babel-loader' }
+                ]
             },
-        }
+            watch: true
+        },
+        // babelPreprocessor: {
+        //     options: {
+        //         presets: ['es2015'],
+        //     },
+        // }
 
     });
 };
